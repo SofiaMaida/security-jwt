@@ -22,4 +22,13 @@ public class Authority {
     @ManyToMany(mappedBy = "authorities")
     private List<User> users;
 
+    public Authority setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public Authority setName(AuthorityName name) {
+        this.name = name;
+        return this;
+    }
 }

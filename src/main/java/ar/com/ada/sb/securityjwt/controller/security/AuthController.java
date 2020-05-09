@@ -20,15 +20,15 @@ public class AuthController {
     @Value("${auth.jwt.type}")
     private String authJwtType;
 
+    JwtAuthResponseBody token = new JwtAuthResponseBody()
+            .setToken("token be here")
+            .setType(authJwtType);
+
+    //token.getToken("token");
+
     @PostMapping({"/login", "/login/"})
     public ResponseEntity createAuthToken(@Valid @RequestBody JwtAuthRequestBody body) {
         LOGGER.info(body.toString());
-
-        JwtAuthResponseBody token = new JwtAuthResponseBody()
-                .setToken("token be here")
-                .setType(authJwtType);
-
-        //token.getToken("token");
         //token.getType(authJwtType);
 
         return ResponseEntity.ok(token);
